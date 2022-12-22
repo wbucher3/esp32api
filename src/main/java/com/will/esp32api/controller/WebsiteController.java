@@ -1,5 +1,6 @@
 package com.will.esp32api.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,14 +12,14 @@ public class WebsiteController {
 	
 	private int timesCalled = 0;
 	
-//	@CrossOrigin(origins = "https://willsbutton.netlify.app/")
+	@CrossOrigin(origins = "http://18.219.211.242:5000/")
 	@RequestMapping(path="/update", method=RequestMethod.GET)
 	public int updateTimesCalled() {
 		this.timesCalled = this.timesCalled + 1;
 		return this.timesCalled;
 	}
 	
-//	@CrossOrigin(origins = "https://willsbutton.netlify.app/")
+//	@CrossOrigin(origins = "http://localhost/")
 	@RequestMapping(path="/get", method=RequestMethod.GET)
 	public int getTimesCalled() {
 		return this.timesCalled;
