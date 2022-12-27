@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class WebsiteController {
 	
@@ -12,23 +13,17 @@ public class WebsiteController {
 	
 	private int timesCalled = 0;
 	
-	@CrossOrigin(origins = "http://18.219.211.242:5000/")
 	@RequestMapping(path="/update", method=RequestMethod.GET)
+	@CrossOrigin(origins = "*")
 	public int updateTimesCalled() {
 		this.timesCalled = this.timesCalled + 1;
 		return this.timesCalled;
 	}
 	
-//	@CrossOrigin(origins = "http://localhost/")
 	@RequestMapping(path="/get", method=RequestMethod.GET)
+	@CrossOrigin(origins = "*")
 	public int getTimesCalled() {
 		return this.timesCalled;
-	}
-	
-//	@CrossOrigin(origins = "https://willsbutton.netlify.app/")
-	@RequestMapping(path="/", method=RequestMethod.GET)
-	public boolean test() {
-		return true;
 	}
 	
 	
